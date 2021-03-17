@@ -1,16 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:prato_final/models/user.dart';
 
-class UserManager extends ChangeNotifier{
+class UserManager extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future<void> sigIn(User user) async{
-    try{
-final AuthResult authResult = await auth.signInWithEmailAndPassword(email: user.email, password: user.password);
-    }catch(e){
-
+  Future<void> sigIn(User user) async {
+    try {
+      final AuthResult authResult = await auth.signInWithEmailAndPassword(
+          email: user.email, password: user.password);
+          print(authResult.user.uid);
+    }on PlatformException catch (e) {
+      print(e);
     }
-    
   }
 }
