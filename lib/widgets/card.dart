@@ -10,6 +10,7 @@ class Cards extends StatelessWidget {
       builder: (__, pratoManager, _) {
         return Expanded(
           child: ListView.builder(
+            
             itemCount: pratoManager.getCountPratos(),
             itemBuilder: (BuildContext context, int index) {
               return Container(
