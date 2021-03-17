@@ -36,12 +36,13 @@ class UserPage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: "Palavra-Passe",
               ),
+              obscureText: true,
             ),
             RaisedButton(
               child: Text("Logar"),
               color: Colors.red,
               onPressed: () {
-                
+
               },
             ),
           ],
