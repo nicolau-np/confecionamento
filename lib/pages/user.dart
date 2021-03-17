@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class UserPage extends StatelessWidget {
   GlobalKey<FormState> _key = GlobalKey();
-  final username = TextEditingController();
-  final password = TextEditingController();
+  final TextEditingController username = TextEditingController();
+  final TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,9 @@ class UserPage extends StatelessWidget {
               child: Text("Logar"),
               color: Colors.red,
               onPressed: () {
-                  
+                  if(_key.currentState.validate()){
+                      
+                  }
               },
             ),
           ],
