@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:prato_final/models/prato_manager.dart';
 import 'package:prato_final/models/slider_manager.dart';
+import 'package:prato_final/models/user.dart';
+import 'package:prato_final/models/user_manager.dart';
 import 'package:prato_final/pages/bottom_navigator.dart';
 import 'package:prato_final/pages/detalhes_prato.dart';
 import 'package:prato_final/pages/favorito_page.dart';
@@ -33,9 +35,15 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => SliderManager(),
         ),
-         ChangeNotifierProvider(
+        ChangeNotifierProvider(
           create: (_) => Prato(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => User(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UserManager(),
+        )
         /*outro provider */
       ],
       child: MaterialApp(
@@ -51,7 +59,7 @@ class MyApp extends StatelessWidget {
           '/home': (context) => HomePage(),
           '/favorito': (context) => FavoritoPage(),
           '/detalhes_prato': (context) => DetalhesPrato(),
-          '/novo': (context)=>NovaTia(),
+          '/novo': (context) => NovaTia(),
         },
       ),
     );
