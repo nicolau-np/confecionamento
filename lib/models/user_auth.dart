@@ -5,6 +5,7 @@ class User{
   String password;
 
   Firestore firestore = Firestore.instance;
+  
 
   Future<void> login() async{
 
