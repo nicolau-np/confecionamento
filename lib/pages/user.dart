@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserPage extends StatelessWidget {
   GlobalKey<FormState> _key = GlobalKey();
-  final TextEditingController username = TextEditingController();
+  final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
   @override
@@ -16,21 +16,21 @@ class UserPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              controller: username,
+              controller: email,
               validator: (value) {
                 if (value.isEmpty) {
-                  return "nome de usuario";
+                  return "Email obrigatorio";
                 }
               },
               decoration: InputDecoration(
-                hintText: "Nome de Usuário",
+                hintText: "Email",
               ),
             ),
             TextFormField(
               controller: password,
               validator: (value) {
                 if (value.isEmpty) {
-                  return "palavra-passe";
+                  return "Palavra-passe obrigatoria";
                 }
               },
               decoration: InputDecoration(
