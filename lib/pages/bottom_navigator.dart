@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prato_final/pages/favorito_page.dart';
 import 'package:prato_final/pages/home_page.dart';
+import 'package:prato_final/pages/user.dart';
 
 class BottomNavigatorPage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
   List<Widget> _screens = [
     HomePage(),
     FavoritoPage(),
+    UserPage(),
   ];
 
   int _itemSelected = 0;
@@ -58,6 +60,17 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
               "Favoritos",
               style: TextStyle(
                   color: _itemSelected == 1 ? Colors.blue : Colors.grey),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.supervised_user_circle_sharp,
+              color: _itemSelected == 2 ? Colors.blue : Colors.grey,
+            ),
+            title: Text(
+              "User",
+              style: TextStyle(
+                  color: _itemSelected == 2 ? Colors.blue : Colors.grey),
             ),
           ),
         ],
