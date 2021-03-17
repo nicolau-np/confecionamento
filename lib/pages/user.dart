@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:prato_final/models/user.dart';
+import 'package:prato_final/models/user_manager.dart';
+import 'package:provider/provider.dart';
 
 class UserPage extends StatelessWidget {
   GlobalKey<FormState> _key = GlobalKey();
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class UserPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              controller: email,
+              controller: emailController,
               validator: (value) {
                 if (value.isEmpty) {
                   return "Email obrigatorio";
@@ -27,7 +30,7 @@ class UserPage extends StatelessWidget {
               ),
             ),
             TextFormField(
-              controller: password,
+              controller: passwordController,
               validator: (value) {
                 if (value.isEmpty) {
                   return "Palavra-passe obrigatoria";
@@ -42,9 +45,12 @@ class UserPage extends StatelessWidget {
               child: Text("Logar"),
               color: Colors.red,
               onPressed: () {
-                  if(_key.currentState.validate()){
-                      
-                  }
+                if (_key.currentState.validate()) {
+                  context.read<UserManager>().sigIn(User(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      ));
+                }
               },
             ),
           ],

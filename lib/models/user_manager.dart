@@ -6,6 +6,11 @@ class UserManager extends ChangeNotifier{
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<void> sigIn(User user) async{
-    final AuthResult authResult = await auth.signInWithEmailAndPassword(email: user.email, password: user.password);
+    try{
+final AuthResult authResult = await auth.signInWithEmailAndPassword(email: user.email, password: user.password);
+    }catch(e){
+
+    }
+    
   }
 }
