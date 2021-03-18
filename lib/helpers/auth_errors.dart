@@ -1,12 +1,11 @@
-String getErrorString(String code){
-    switch(code){
-      case 'ERROR_WEAK_PASSWORD':
+String getErrorString(String code) {
+  switch (code) {
+    case 'ERROR_WEAK_PASSWORD':
       return "Sua senha é muito fraca";
-      case 'ERROR_INVALID_EMAIL':
+    case 'ERROR_INVALID_EMAIL':
       return "Seu e-mail é invalido";
-      
-      default:
-      return "Um erro indefinido ocorreu";
 
-    }
+    default:
+      return "Um erro indefinido ocorreu";
+  }
 }

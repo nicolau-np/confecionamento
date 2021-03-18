@@ -5,12 +5,14 @@ import 'package:provider/provider.dart';
 
 class UserPage extends StatelessWidget {
   GlobalKey<FormState> _key = GlobalKey();
+  GlobalKey<ScaffoldState> scafoldState = GlobalKey();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scafoldState,
       appBar: AppBar(
         title: Text("User Account"),
       ),
@@ -46,10 +48,22 @@ class UserPage extends StatelessWidget {
               color: Colors.red,
               onPressed: () {
                 if (_key.currentState.validate()) {
-                  context.read<UserManager>().sigIn(User(
+                  context.read<UserManager>().sigIn(
+                      user: User(
                         email: emailController.text,
                         password: passwordController.text,
-                      ));
+                      ),
+                      onFail: (e) {
+                        scafoldState.currentState.showSnackBar(
+                          SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      },
+                      onSuccess: () {
+                        print("sucesso");
+                      });
                 }
               },
             ),
